@@ -1,0 +1,17 @@
+.grid-container{
+    border: 1px solid black;
+    margin: 10px;
+    width:  300px;
+    padding: 10px;
+}
+
+.grid-container li{
+    list-style: none;
+}
+.grid-container ul{
+    padding:0;
+}
+
+.grid-container * {
+    text-align: center;
+}

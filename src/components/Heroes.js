@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 
+import "./Heroes.css";
+
 import HeroBracket from './HeroBracket/HeroBracket';
 import HeroCard from './HeroBracket/HeroCard';
 
@@ -10,8 +12,8 @@ export default class Heroes extends Component {
 
         this.state = {
             heroes: []
-        }
-    }
+        };
+    };
 
     componentDidMount() {
         axios.get("http://localhost:4000/heroes")
@@ -24,23 +26,16 @@ export default class Heroes extends Component {
             .catch(err => console.log(err));
     };
 
-    heroesList() {
-        return this.state.heroes.map(hero => {
-            console.log(hero);
-            <HeroCard key={hero._id} {...hero} />
-        });
-    };
 
     render() {
         return (
-            <div>
-                <h1>Heroes:</h1>
-                <div>
-
-                    {this.heroesList()}
-
+            <div >
+                <div className="row-contain">
+                    {this.state.heroes.map(hero => {
+                        return <HeroCard key={hero._id} {...hero} />
+                    })}
                 </div>
             </div>
-        )
-    }
-}
+        );
+    };
+};

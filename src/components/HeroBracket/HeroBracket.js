@@ -19,6 +19,7 @@ export default class HeroBracket extends Component {
 
         axios.get("http://localhost:4000/heroes")
             .then(res => {
+                console.log(this.state.loading)
                 this.setState({
                     loading: false,
                     heroes: res.data,
@@ -40,9 +41,11 @@ export default class HeroBracket extends Component {
                 {this.state.heroes.map(hero => {
                     console.log(hero);
                 return <HeroCard key={hero._id} {...hero} />
-                })}
+                }
+            )}
 
             </div>
+
         )
     }
 }
