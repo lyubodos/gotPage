@@ -13,6 +13,7 @@ export default class HeroCard extends Component {
         return (
             <div className="grid-container">
                  <h4>{this.props.name} </h4>
+                 <img src={this.props.imageUrl} alt="hero"></img>
                  <div>
                     <p>Age: <b>{this.props.age}</b></p>
                     <p>House: <b>{this.props.house}</b></p>
@@ -30,6 +31,7 @@ export default class HeroCard extends Component {
                             Intellect: {this.props.intellect}
                         </li>
                     </ul>
+                    <button className="btn btn-dark">Details</button>
                  </div>
              </div>
         )

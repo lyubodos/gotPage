@@ -1,5 +1,13 @@
+.heroes-container{
+    height: 1200px;
+    text-align: center;
+}
+
+
 .row-contain{
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
     place-items: center;
 }
+
+

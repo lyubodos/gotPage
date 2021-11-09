@@ -29,7 +29,8 @@ export default class Heroes extends Component {
 
     render() {
         return (
-            <div >
+            <div className="heroes-container">
+                <h1>Heroes:</h1>
                 <div className="row-contain">
                     {this.state.heroes.map(hero => {
                         return <HeroCard key={hero._id} {...hero} />
