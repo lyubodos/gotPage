@@ -1,0 +1,20 @@
+.container-main {
+    text-align: center;
+}
+
+.container-main h1{
+    margin-top: 30px
+}
+
+.container-main img{
+    width: auto;
+    height: auto;
+    margin-top: 30px;
+    opacity: 90%;
+}
+
+
+.container-main img:hover{
+
+    opacity: 100%;
+}
