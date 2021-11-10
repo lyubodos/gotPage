@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 
 import "./Heroes.css";
 
-import HeroBracket from './HeroBracket/HeroBracket';
-import HeroCard from './HeroBracket/HeroCard';
+import HeroCard from '../HeroBracket/HeroCard';
 
 export default class Heroes extends Component {
     constructor(props) {

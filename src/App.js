@@ -4,9 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
-import Header from "./components/Header";
-import Heroes from "./components/Heroes";
-import Houses from "./components/Houses";
+import Home from "../src/components/Home/Home";
+import Header from "./components/Header/Header";
+import Heroes from "./components/Heroes/Heroes";
+import Houses from "./components/Houses/Houses";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Header />
 
         <Switch>
+         <Route path="/" exact component={Home}/>
          <Route path="/houses" component={Houses}/>
          <Route path="/heroes" component={Heroes}/>
         </Switch>
