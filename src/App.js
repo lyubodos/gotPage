@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 import Home from "../src/components/Home/Home";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Heroes from "./components/Heroes/Heroes";
 import Houses from "./components/Houses/Houses";
@@ -24,6 +25,7 @@ function App() {
          <Route path="/heroes" component={Heroes}/>
         </Switch>
 
+        <Footer/>
       </Router>
     </div>
   );
