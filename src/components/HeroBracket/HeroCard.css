@@ -24,3 +24,12 @@ img{
     width: 300px;
     height: 320px;
 }
+
+.stats-container{
+    display: inline-block;
+}
+
+.stats-icon{
+    margin-right: 10px;
+}
+
