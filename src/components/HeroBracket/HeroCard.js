@@ -12,28 +12,34 @@ export default class HeroCard extends Component {
     render() {
         return (
             <div className="grid-container">
-                 <h4>{this.props.name} </h4>
-                 <img src={this.props.imageUrl} alt="hero"></img>
-                 <div>
+                <h4>{this.props.name} </h4>
+                <img src={this.props.imageUrl} alt="hero"></img>
+                <div>
                     <p>Age: <b>{this.props.age}</b></p>
                     <p>House: <b>{this.props.house}</b></p>
                     <ul>
                         <li>
-                            Strength: {this.props.strength}
+                            <i class="fas fa-fist-raised stats-icon"></i>
+
+                            <h6 className="stats-container">Strength: {this.props.strength}</h6>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-heart stats-icon"></i>
+                            <h6 className="stats-container">Stamina: {this.props.stamina}</h6>
                         </li>
                         <li>
-                            Stamina: {this.props.stamina}
+                            <i class="fas fa-running stats-icon"></i>
+                            <h6 className="stats-container">Agility: {this.props.agility}</h6>
                         </li>
                         <li>
-                            Agility: {this.props.agility}
-                        </li>
-                        <li>
-                            Intellect: {this.props.intellect}
+                            <i class="fas fa-brain stats-icon"></i>
+                            <h6 className="stats-container"> Intellect: {this.props.intellect}</h6>
                         </li>
                     </ul>
                     <button className="btn btn-dark">Details</button>
-                 </div>
-             </div>
+                </div>
+            </div>
         )
     };
 }
