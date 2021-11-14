@@ -6,6 +6,8 @@ export default class HeroCard extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = [];
     };
 
 
