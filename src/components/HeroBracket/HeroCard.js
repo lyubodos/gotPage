@@ -13,10 +13,11 @@ export default class HeroCard extends Component {
         return (
             <div className="grid-container">
                 <h4>{this.props.name} </h4>
-                <img src={this.props.imageUrl} alt="hero"></img>
+                <img className="hero-image"src={this.props.imageUrl} alt="hero"></img>
                 <div>
                     <p>Age: <b>{this.props.age}</b></p>
                     <p>House: <b>{this.props.house}</b></p>
+                    <img className="house-banner" src="" alt="banner"/>
                     <ul>
                         <li>
                             <i class="fas fa-fist-raised stats-icon"></i>

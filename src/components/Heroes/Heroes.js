@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import "./Heroes.css";
 
 import HeroCard from '../HeroBracket/HeroCard';
+import Search from '../Search/Search';
 
 export default class Heroes extends Component {
     constructor(props) {
@@ -30,6 +31,7 @@ export default class Heroes extends Component {
         return (
             <div className="heroes-container">
                 <h1>Heroes:</h1>
+                <Search/>
                 <div className="row-contain">
                     {this.state.heroes.map(hero => {
                         return <HeroCard key={hero._id} {...hero} />
