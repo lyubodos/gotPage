@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link } from 'react-router-dom';
 
 export default class Pagination extends Component {
 
@@ -21,7 +22,7 @@ export default class Pagination extends Component {
                     {
                     pageNumbers.map(el => {
                       return  <li key={el} className="page-item">
-                                <a onClick={() => this.props.paginate(el)} href="!#" className="page-link">{el}</a>
+                                <Link onClick={() => this.props.paginate(el)} to={`/heroes`} className="page-link">{el}</Link>
                         </li>
                     })}
                 </ul>   

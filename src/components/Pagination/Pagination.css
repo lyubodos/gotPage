@@ -1,8 +1,9 @@
 .pagination-container{
+    display: inline-block;
     text-align: center;
 }
 
 .pagination{
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    text-align: center;
 }
