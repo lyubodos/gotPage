@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import "./Heroes.css";
 
 import HeroCard from '../HeroBracket/HeroCard';
-import Search from '../Search/Search';
+import Pagination from '../Pagination/Pagination';
 
 export default class Heroes extends Component {
     constructor(props) {
@@ -14,22 +14,31 @@ export default class Heroes extends Component {
 
         this.state = {
             heroes: [],
-            searchInp: ""
+            searchInp: "",
+            currentPage: 1,
+            heroesPerPage: 6,
+            loading: false
         };
     };
 
+
     componentDidMount() {
+        this.setState({loading: true});
+
         axios.get("http://localhost:4000/heroes")
             .then(res => {
                 this.setState({
                     heroes: res.data
-                })
+                });
+                this.setState({loading: false});
             })
             .catch(err => console.log(err));
     };
 
+
     filterHeroes(e){
         e.preventDefault();
+        this.setState({loading: true});
 
         axios.get("http://localhost:4000/heroes")
             .then(res => {
@@ -44,17 +53,29 @@ export default class Heroes extends Component {
                         return heroName.includes(this.state.searchInp.toLowerCase())
                     })
                 });
-                console.log(this.state.heroes);
+                this.setState({loading: false});
+
 
             })
 
     };
 
+    paginate(pageNumber){
+        this.setState({currentPage: pageNumber})
+    }
+
 
     render() {
+
+        const indexOfLastHero = this.state.currentPage*this.state.heroesPerPage;
+        const indexOfFirstHero = indexOfLastHero - this.state.heroesPerPage;
+        const currentHeroes = this.state.heroes.slice(indexOfFirstHero, indexOfLastHero);
+
+
         return (
             <div className="heroes-container">
                 <h1>Heroes:</h1>
+                {this.state.loading && <h2>Loading...</h2>}
                 <form  className="form-container" onSubmit={this.filterHeroes}>
                     <label>Search heroes </label>
                     <input
@@ -70,10 +91,11 @@ export default class Heroes extends Component {
                     <button className="submit-btn" type="submit">Search</button>
                 </form>
                 <div className="row-contain">
-                    {this.state.heroes.map(hero => {
-                        return <HeroCard key={hero._id} {...hero} />
+                    {currentHeroes.map(hero => {
+                        return <HeroCard heroes={currentHeroes} key={hero._id} {...hero} />
                     })}
                 </div>
+                <Pagination paginate={this.paginate} heroesPerPage={this.state.heroesPerPage} totalHeroes={this.state.heroes.length} />
             </div>
         );
     };
