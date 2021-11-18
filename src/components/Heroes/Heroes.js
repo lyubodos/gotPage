@@ -57,8 +57,6 @@ export default class Heroes extends Component {
                     })
                 });
                 this.setState({loading: false});
-
-
             })
 
     };
