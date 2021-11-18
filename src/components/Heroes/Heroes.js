@@ -55,7 +55,7 @@ export default class Heroes extends Component {
         return (
             <div className="heroes-container">
                 <h1>Heroes:</h1>
-                <form onSubmit={this.filterHeroes}>
+                <form  className="form-container" onSubmit={this.filterHeroes}>
                     <label>Search heroes </label>
                     <input
                         className="input-search"
@@ -67,7 +67,7 @@ export default class Heroes extends Component {
                             this.setState({searchInp: e.target.value});
                         }} 
                         />
-                    <button type="submit">Search</button>
+                    <button className="submit-btn" type="submit">Search</button>
                 </form>
                 <div className="row-contain">
                     {this.state.heroes.map(hero => {
