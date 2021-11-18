@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 import "./HeroCard.css";
 
 export default class HeroCard extends Component {
@@ -7,7 +8,14 @@ export default class HeroCard extends Component {
     constructor(props) {
         super(props);
 
-        this.state = [];
+        this.heroPath = this.heroPath.bind(this);
+
+    };
+
+
+    heroPath(){
+
+        window.location = `/heroes/${this.props._id}`;
     };
 
 
@@ -40,9 +48,9 @@ export default class HeroCard extends Component {
                             <h6 className="stats-container"> Intellect: {this.props.intellect}</h6>
                         </li>
                     </ul>
-                    <button className="btn btn-dark">Details</button>
+                    <button className="btn btn-dark" onClick={this.heroPath}>Details</button>
                 </div>
             </div>
         )
     };
-}
+};

@@ -3,12 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-
-import Home from "../src/components/Home/Home";
-import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import Home from "../src/components/Home/Home";
+import HeroBracket from "./components/HeroBracket/HeroBracket";
 import Heroes from "./components/Heroes/Heroes";
 import Houses from "./components/Houses/Houses";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -20,9 +20,12 @@ function App() {
         <Header />
 
         <Switch>
+
          <Route path="/" exact component={Home}/>
          <Route path="/houses" component={Houses}/>
-         <Route path="/heroes" component={Heroes}/>
+         <Route path="/heroes" exact component={Heroes}/>
+         <Route path="/heroes/:id" component={HeroBracket}/>
+
         </Switch>
 
         <Footer/>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import axios from "axios";
-import HeroCard from './HeroCard';
+import "./HeroBracket.css"
 
 export default class HeroBracket extends Component {
 
@@ -10,39 +10,37 @@ export default class HeroBracket extends Component {
 
         this.state = {
             loading: false,
-            heroes: []
+            hero: []
         }
     }
 
     componentDidMount() {
-        this.setState({ loading: true});
+        this.setState({ loading: true });
 
-        axios.get("http://localhost:4000/heroes")
+        const urlParts = window.location.href.split("/");
+        const heroId = urlParts[urlParts.length - 1];
+        
+
+        axios.get(`http://localhost:4000/heroes/${heroId}`)
             .then(res => {
-                console.log(this.state.loading)
                 this.setState({
-                    loading: false,
-                    heroes: res.data,
-                    
-                })
+                    hero: res.data
+                });
             })
             .catch(err => console.log(err));
-    };
-
-    heroesList() {
+        this.setState({loading: false})
 
     };
+
+
 
     render() {
         return (
 
-            <div>
-                {this.state.loading ? <h1>Loading....</h1> : ""}
-                {this.state.heroes.map(hero => {
-                    console.log(hero);
-                return <HeroCard key={hero._id} {...hero} />
-                }
-            )}
+            <div className="hero-bracket">
+              {this.state.loading && <h2>Loading...</h2>}
+
+              <h1>{this.state.hero.name}</h1>
 
             </div>
 
