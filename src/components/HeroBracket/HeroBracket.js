@@ -41,6 +41,12 @@ export default class HeroBracket extends Component {
               {this.state.loading && <h2>Loading...</h2>}
 
               <h1>{this.state.hero.name}</h1>
+              <img className="hero-bracket-img" src={this.state.hero.imageUrl}/>
+              
+              <h3 className="hero-bracket-age" >Age: {this.state.hero.age}</h3>
+              <h4>House: {this.state.hero.house}</h4>
+              <img alt="banner-img" />
+               <p className="hero-bracket-desc">Description field.</p>
 
             </div>
 

@@ -5,3 +5,13 @@
 .hero-bracket h1, h2 {
     margin-top: 20px;
 }
+
+.hero-bracket-img{
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+}
+
+.hero-bracket-desc{
+    margin-top:100px;
+}
